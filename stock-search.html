@@ -1,0 +1,56 @@
+<html ng-app>
+<head>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body ng-app>
+	<div class="container">
+	<div class="header">
+		<div class="search-container">
+			<input id="search-box" type="text" class="search-box" ng-model="inputText" />
+			<label for="search-box"><span class="glyphicon glyphicon-search search-icon"></span></label>
+			<input type="submit" id="search-submit" />
+		</div>
+		<div class="title">
+			<h1>Stock you are searching is: <span class="ticker">{{inputText}}</span></h1>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+	<div role="tabpanel">
+	  <!-- Nav tabs -->
+	  <ul class="nav nav-tabs" role="tablist">
+	    <li role="presentation"><a href="#three" aria-controls="three" role="tab" data-toggle="tab">3 Month</a></li>
+	    <li role="presentation" class="active"><a href="#one-year" aria-controls="one-year" role="tab" data-toggle="tab">1 Year</a></li>
+	    <li role="presentation"><a href="#two-year" aria-controls="two-year" role="tab" data-toggle="tab">2 Year</a></li>
+	    <li role="presentation"><a href="#three-year" aria-controls="three-year" role="tab" data-toggle="tab">3 Year</a></li>
+	  </ul>
+
+	  <!-- Tab panes -->
+	  <div class="tab-content">
+	    <div role="tabpanel" class="tab-pane" id="three">
+	    	<img src="https://chart.finance.yahoo.com/z?s={{inputText}}&t=3m&q=&l=&z=l&a=v&p=s&lang=en-CA&region=CA" alt="stock-chart" />
+	    </div>
+	    <div role="tabpanel" class="tab-pane active" id="one-year">
+	    	<img src="https://chart.finance.yahoo.com/z?s={{inputText}}&t=1y&q=&l=&z=l&a=v&p=s&lang=en-CA&region=CA" alt="stock-chart" />
+	    </div>
+	    <div role="tabpanel" class="tab-pane" id="two-year">
+	    	<img src="https://chart.finance.yahoo.com/z?s={{inputText}}&t=2y&q=&l=&z=l&a=v&p=s&lang=en-CA&region=CA" alt="stock-chart" />
+	    </div>
+	    <div role="tabpanel" class="tab-pane" id="three-year">
+	    	<img src="https://chart.finance.yahoo.com/z?s={{inputText}}&t=3y&q=&l=&z=l&a=v&p=s&lang=en-CA&region=CA" alt="stock-chart" />
+	    </div>
+	  </div>
+
+	</div>
+</div>
+<script>
+$('#myTab a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+</script>
+</body>
+</html>
